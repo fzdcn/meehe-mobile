@@ -3,7 +3,7 @@
     <nav-bar :title="title"></nav-bar>
     <div class="content ignore">
       <div class="header-content">
-        <div class="view-num text-center">被浏览次数</div>
+        <div class="view-num text-center">成交订单总数</div>
         <div class="number text-center text-bold">4383683</div>
         <div class="add-number text-center">
           <div class="add-img">
@@ -13,23 +13,21 @@
         </div>
         <div class="content-detail">
           <div class="detail-info">
-            <div class="text-center text-info">被邀次数</div>
+            <div class="text-center text-info">待发货订单数</div>
             <div class="number-info">
               <div class="text-bold text-break">3500</div>
-              <div class="text-break">+50</div>
-              <div>
-                <img src="../../assets/img/add-nomber.png" alt="被邀次数">
-              </div>
             </div>
           </div>
           <div class="detail-info">
-            <div class="text-center text-info">沟通次数</div>
+            <div class="text-center text-info">待收货订单数</div>
             <div class="number-info">
               <div class="text-bold text-break">567</div>
-              <div class="text-break">+50</div>
-              <div>
-                <img src="../../assets/img/add-nomber.png" alt="沟通次数">
-              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <div class="text-center text-info">待收账款(元)</div>
+            <div class="number-info">
+              <div class="text-bold text-break">567</div>
             </div>
           </div>
         </div>
@@ -37,9 +35,9 @@
       <div class="effect-list">
         <div class="my-effect">
           <div>
-            <img src="../../assets/img/effect-left-img.png" alt="">
+            <img src="../../assets/img/order-left-img.png" alt="">
           </div>
-          <div>我的影响力</div>
+          <div>我卖出的订单</div>
           <div>
             <img src="../../assets/img/right-arrow.png" alt="">
           </div>
@@ -58,7 +56,7 @@ export default {
   },
   data() {
     return {
-      title: '影响力空间'
+      title: '订单管理'
     }
   }
 }
@@ -120,7 +118,7 @@ export default {
         width 100%
         justify-content space-around
         .detail-info
-          width 48%
+          width 32%
           .text-info
             margin-bottom 10px
             color #CCCCCC
@@ -133,12 +131,6 @@ export default {
               &:nth-child(1)
                 color #333333
                 font-size 20px
-                margin-right 5px
-              &:nth-child(2)
-                color #FF2D00
-                font-size 12px
-              &:nth-child(3)
-                width 10px
     .effect-list
       position relative
       top 40px

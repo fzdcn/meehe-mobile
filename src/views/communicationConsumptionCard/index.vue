@@ -3,8 +3,8 @@
     <nav-bar :title="title"></nav-bar>
     <div class="content ignore">
       <div class="header-content">
-        <div class="view-num text-center">被浏览次数</div>
-        <div class="number text-center text-bold">4383683</div>
+        <div class="view-money text-center">总收益(元)</div>
+        <div class="number text-center text-bold">7,0000</div>
         <div class="add-number text-center">
           <div class="add-img">
             <img src="../../assets/img/add-nomber.png" alt="今日新增">
@@ -13,22 +13,32 @@
         </div>
         <div class="content-detail">
           <div class="detail-info">
-            <div class="text-center text-info">被邀次数</div>
+            <div class="text-center text-info">传播消费卡次数</div>
             <div class="number-info">
-              <div class="text-bold text-break">3500</div>
+              <div class="text-bold text-break">340</div>
               <div class="text-break">+50</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="被邀次数">
+                <img src="../../assets/img/add-nomber.png" alt="传播消费卡次数">
               </div>
             </div>
           </div>
           <div class="detail-info">
-            <div class="text-center text-info">沟通次数</div>
+            <div class="text-center text-info">领取总数</div>
             <div class="number-info">
-              <div class="text-bold text-break">567</div>
+              <div class="text-bold text-break">1670</div>
               <div class="text-break">+50</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="沟通次数">
+                <img src="../../assets/img/add-nomber.png" alt="领取总数">
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <div class="text-center text-info">核销总数</div>
+            <div class="number-info">
+              <div class="text-bold text-break">867</div>
+              <div class="text-break">+50</div>
+              <div>
+                <img src="../../assets/img/add-nomber.png" alt="核销总数">
               </div>
             </div>
           </div>
@@ -37,13 +47,29 @@
       <div class="effect-list">
         <div class="my-effect">
           <div>
-            <img src="../../assets/img/effect-left-img.png" alt="">
+            <img src="../../assets/img/spread-card-left.png" alt="">
           </div>
-          <div>我的影响力</div>
+          <div>我传播的消费卡</div>
           <div>
             <img src="../../assets/img/right-arrow.png" alt="">
           </div>
         </div>
+        <hr>
+        <div class="my-effect">
+          <div>
+            <img src="../../assets/img/accept-card-left.png" alt="">
+          </div>
+          <div>待接受的传播邀请</div>
+          <div>
+            <img src="../../assets/img/right-arrow.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-img">
+          <img src="../../assets/img/right-arrow.png" alt="">
+        </div>
+        <div class="tip-text">作为达人，您可以传播消费卡给他人并获取相应收益</div>
       </div>
     </div>
   </div>
@@ -58,7 +84,7 @@ export default {
   },
   data() {
     return {
-      title: '影响力空间'
+      title: '传播消费卡'
     }
   }
 }
@@ -82,7 +108,7 @@ export default {
       border-radius 4px 4px 8px 8px
       display flex
       flex-flow column nowrap
-      .view-num
+      .view-money
         width 100%
         font-size 12px
         color #999999
@@ -120,7 +146,7 @@ export default {
         width 100%
         justify-content space-around
         .detail-info
-          width 48%
+          width 32%
           .text-info
             margin-bottom 10px
             color #CCCCCC
@@ -146,6 +172,11 @@ export default {
       border-radius 8px
       width 351px
       margin 0 auto
+      hr
+        border none
+        border-top 1px solid #EEEEEE
+        width 331px
+        height 1px
       .my-effect
         padding 0 10px
         height 56px
@@ -167,4 +198,20 @@ export default {
           &:nth-child(3)
             width 18px
             height 18px
+    .tip
+      position relative
+      top 40px
+      display flex
+      width 351px
+      margin 10px auto
+      .tip-img
+        display flex
+        width 16px
+        height 16px
+        margin-right 5px
+      .tip-text
+        color #999999
+        font-size 12px
+        width 100%
+        line-height 16px
 </style>

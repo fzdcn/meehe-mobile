@@ -6,6 +6,11 @@ import Router from "vue-router";
 
 Vue.use(Router);
 const Home = () => import("@/views/index/home");
+const communicationConsumptionCard = () =>
+	import("@/views/communicationConsumptionCard/index");
+const orderManage = () => import("@/views/orderManage/index");
+const goodsManage = () => import("@/views/goodsManage/index");
+const issueConsumerCard = () => import("@/views/issueConsumerCard/index");
 const Login = () => import("@/views/login/login");
 
 const routes = [
@@ -15,6 +20,30 @@ const routes = [
 		path: "/home",
 		name: "home",
 		component: Home,
+		meta: { auth: false, keepAlive: false },
+	},
+	{
+		path: "/communication-consumption-card",
+		name: "communication-consumption-card",
+		component: communicationConsumptionCard,
+		meta: { auth: false, keepAlive: false },
+	},
+	{
+		path: "/order-manage",
+		name: "order-manage",
+		component: orderManage,
+		meta: { auth: false, keepAlive: false },
+	},
+	{
+		path: "/goods-manage",
+		name: "goods-manage",
+		component: goodsManage,
+		meta: { auth: false, keepAlive: false },
+	},
+	{
+		path: "/issue-consumer-card",
+		name: "issue-consumer-card",
+		component: issueConsumerCard,
 		meta: { auth: false, keepAlive: false },
 	},
 ];

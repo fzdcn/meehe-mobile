@@ -3,33 +3,25 @@
     <nav-bar :title="title"></nav-bar>
     <div class="content ignore">
       <div class="header-content">
-        <div class="view-num text-center">被浏览次数</div>
-        <div class="number text-center text-bold">4383683</div>
+        <div class="view-money text-center">商品总销量</div>
+        <div class="number text-center text-bold">7,0000</div>
         <div class="add-number text-center">
           <div class="add-img">
             <img src="../../assets/img/add-nomber.png" alt="今日新增">
           </div>
-          <div class="today-number text-bold text-break">今日新增 + 35</div>
+          <div class="today-number text-bold text-break">今日下降 - 35</div>
         </div>
         <div class="content-detail">
           <div class="detail-info">
-            <div class="text-center text-info">被邀次数</div>
+            <div class="text-center text-info">上架商品数</div>
             <div class="number-info">
-              <div class="text-bold text-break">3500</div>
-              <div class="text-break">+50</div>
-              <div>
-                <img src="../../assets/img/add-nomber.png" alt="被邀次数">
-              </div>
+              <div class="text-bold text-break">340</div>
             </div>
           </div>
           <div class="detail-info">
-            <div class="text-center text-info">沟通次数</div>
+            <div class="text-center text-info">未上架商品数</div>
             <div class="number-info">
-              <div class="text-bold text-break">567</div>
-              <div class="text-break">+50</div>
-              <div>
-                <img src="../../assets/img/add-nomber.png" alt="沟通次数">
-              </div>
+              <div class="text-bold text-break">1670</div>
             </div>
           </div>
         </div>
@@ -37,9 +29,19 @@
       <div class="effect-list">
         <div class="my-effect">
           <div>
-            <img src="../../assets/img/effect-left-img.png" alt="">
+            <img src="../../assets/img/goods-left-img.png" alt="">
           </div>
-          <div>我的影响力</div>
+          <div>商品列表</div>
+          <div>
+            <img src="../../assets/img/right-arrow.png" alt="">
+          </div>
+        </div>
+        <hr>
+        <div class="my-effect">
+          <div>
+            <img src="../../assets/img/sales-left-img.png" alt="">
+          </div>
+          <div>商品销量排行</div>
           <div>
             <img src="../../assets/img/right-arrow.png" alt="">
           </div>
@@ -58,7 +60,7 @@ export default {
   },
   data() {
     return {
-      title: '影响力空间'
+      title: '商品管理'
     }
   }
 }
@@ -82,7 +84,7 @@ export default {
       border-radius 4px 4px 8px 8px
       display flex
       flex-flow column nowrap
-      .view-num
+      .view-money
         width 100%
         font-size 12px
         color #999999
@@ -100,7 +102,7 @@ export default {
           margin-right 10px
         .today-number
           font-size 12px
-          color #FF2D01
+          color #00B578
           word-break break-all
           max-width 200px
           line-height 16px
@@ -109,7 +111,7 @@ export default {
           align-items center
           width 16px
           height 16px
-          background rgba(255, 45, 1, 0.08)
+          background rgba(0, 181, 120, 0.08)
           border-radius 50%
           img
             width 100%
@@ -133,12 +135,6 @@ export default {
               &:nth-child(1)
                 color #333333
                 font-size 20px
-                margin-right 5px
-              &:nth-child(2)
-                color #FF2D00
-                font-size 12px
-              &:nth-child(3)
-                width 10px
     .effect-list
       position relative
       top 40px
@@ -146,6 +142,11 @@ export default {
       border-radius 8px
       width 351px
       margin 0 auto
+      hr
+        border none
+        border-top 1px solid #EEEEEE
+        width 331px
+        height 1px
       .my-effect
         padding 0 10px
         height 56px

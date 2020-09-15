@@ -1,10 +1,12 @@
 <template>
   <div class="home">
-    <nav-bar :title="title"></nav-bar>
+    <nav-bar :title="title">
+      <van-icon name="add-o" slot="right" size="20" />
+    </nav-bar>
     <div class="content ignore">
       <div class="header-content">
-        <div class="view-num text-center">被浏览次数</div>
-        <div class="number text-center text-bold">4383683</div>
+        <div class="view-money text-center">销量提升</div>
+        <div class="number text-center text-bold">7,0000</div>
         <div class="add-number text-center">
           <div class="add-img">
             <img src="../../assets/img/add-nomber.png" alt="今日新增">
@@ -13,23 +15,25 @@
         </div>
         <div class="content-detail">
           <div class="detail-info">
-            <div class="text-center text-info">被邀次数</div>
+            <div class="text-center text-info">发行次数</div>
             <div class="number-info">
-              <div class="text-bold text-break">3500</div>
+              <div class="text-bold text-break">340</div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <div class="text-center text-info">触达人数</div>
+            <div class="number-info">
+              <div class="text-bold text-break">1670</div>
               <div class="text-break">+50</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="被邀次数">
+                <img src="../../assets/img/add-nomber.png" alt="触达人数">
               </div>
             </div>
           </div>
           <div class="detail-info">
-            <div class="text-center text-info">沟通次数</div>
+            <div class="text-center text-info">传播的达人数</div>
             <div class="number-info">
-              <div class="text-bold text-break">567</div>
-              <div class="text-break">+50</div>
-              <div>
-                <img src="../../assets/img/add-nomber.png" alt="沟通次数">
-              </div>
+              <div class="text-bold text-break">867</div>
             </div>
           </div>
         </div>
@@ -37,15 +41,32 @@
       <div class="effect-list">
         <div class="my-effect">
           <div>
-            <img src="../../assets/img/effect-left-img.png" alt="">
+            <img src="../../assets/img/create-card-left-img.png" alt="">
           </div>
-          <div>我的影响力</div>
+          <div>我创建的消费卡</div>
+          <div>
+            <img src="../../assets/img/right-arrow.png" alt="">
+          </div>
+        </div>
+        <hr>
+        <div class="my-effect">
+          <div>
+            <img src="../../assets/img/release-history-left-img.png" alt="">
+          </div>
+          <div>消费卡发行记录</div>
           <div>
             <img src="../../assets/img/right-arrow.png" alt="">
           </div>
         </div>
       </div>
+      <div class="tip">
+        <div class="tip-img">
+          <img src="../../assets/img/right-arrow.png" alt="">
+        </div>
+        <div class="tip-text">作为商家，您可以发行消费卡，通过达人传播，吸引更多人来购买商品，进而提升销量</div>
+      </div>
     </div>
+    <van-picker title="标题" show-toolbar :columns="columns" @confirm="onConfirm" @cancel="onCancel" @change="onChange" />
   </div>
 </template>
 
@@ -58,7 +79,19 @@ export default {
   },
   data() {
     return {
-      title: '影响力空间'
+      title: '发行消费卡',
+      columns: ['杭州', '宁波', '温州', '绍兴', '湖州', '嘉兴', '金华', '衢州']
+    }
+  },
+  methods: {
+    onConfirm(value, index) {
+      this.$toast(`当前值：${value}, 当前索引：${index}`)
+    },
+    onChange(picker, value, index) {
+      this.$toast(`当前值：${value}, 当前索引：${index}`)
+    },
+    onCancel() {
+      this.$toast('取消')
     }
   }
 }
@@ -82,7 +115,7 @@ export default {
       border-radius 4px 4px 8px 8px
       display flex
       flex-flow column nowrap
-      .view-num
+      .view-money
         width 100%
         font-size 12px
         color #999999
@@ -120,7 +153,7 @@ export default {
         width 100%
         justify-content space-around
         .detail-info
-          width 48%
+          width 32%
           .text-info
             margin-bottom 10px
             color #CCCCCC
@@ -146,6 +179,11 @@ export default {
       border-radius 8px
       width 351px
       margin 0 auto
+      hr
+        border none
+        border-top 1px solid #EEEEEE
+        width 331px
+        height 1px
       .my-effect
         padding 0 10px
         height 56px
@@ -167,4 +205,20 @@ export default {
           &:nth-child(3)
             width 18px
             height 18px
+    .tip
+      position relative
+      top 40px
+      display flex
+      width 351px
+      margin 10px auto
+      .tip-img
+        display flex
+        width 16px
+        height 16px
+        margin-right 5px
+      .tip-text
+        color #999999
+        font-size 12px
+        width 100%
+        line-height 16px
 </style>

@@ -1,6 +1,8 @@
 <template>
   <div class="navBar">
-    <van-nav-bar :title="title" left-text="" right-text="按钮" left-arrow @click-left="onClickLeft" @click-right="onClickRight" />
+    <van-nav-bar fixed ref="navBar" :border="false" :title="title" left-text="" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
+      <slot slot="right" name="right"></slot>
+    </van-nav-bar>
   </div>
 </template>
 
@@ -12,10 +14,10 @@ export default {
   },
   methods: {
     onClickLeft() {
-      this.Toast.success('成功文案')
+      this.$toast('成功文案')
     },
     onClickRight() {
-      Toast('按钮')
+      this.$toast('按钮')
     }
   }
 }
