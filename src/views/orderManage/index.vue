@@ -7,7 +7,7 @@
         <div class="number text-center text-bold">4383683</div>
         <div class="add-number text-center">
           <div class="add-img">
-            <img src="../../assets/img/add-nomber.png" alt="今日新增">
+            <img src="../../assets/img/add-nomber.png" alt="今日新增" />
           </div>
           <div class="today-number text-bold text-break">今日新增 + 35</div>
         </div>
@@ -35,11 +35,11 @@
       <div class="effect-list">
         <div class="my-effect">
           <div>
-            <img src="../../assets/img/order-left-img.png" alt="">
+            <img src="../../assets/img/order-left-img.png" alt="" />
           </div>
           <div>我卖出的订单</div>
           <div>
-            <img src="../../assets/img/right-arrow.png" alt="">
+            <img src="../../assets/img/right-arrow.png" alt="" />
           </div>
         </div>
       </div>
@@ -48,32 +48,28 @@
 </template>
 
 <script>
-import navBar from '@/components/navBar'
+import navBar from "@/components/navBar";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     navBar
   },
   data() {
     return {
-      title: '订单管理'
-    }
+      title: "订单管理"
+    };
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
 .home
   .ignore
-    top 46px
+    padding-top 70px
   .content
-    position relative
-    width 100%
-    margin auto
     .header-content
       position relative
-      top 30px
-      padding 40px 0px
       margin auto
+      padding-top 30px
       width 351px
       min-height 284px
       background #FFFFFF
@@ -132,12 +128,10 @@ export default {
                 color #333333
                 font-size 20px
     .effect-list
-      position relative
-      top 40px
       background #FFFFFF
       border-radius 8px
       width 351px
-      margin 0 auto
+      margin 10px auto
       .my-effect
         padding 0 10px
         height 56px
@@ -157,6 +151,8 @@ export default {
             font-size 16px
             color #333333
           &:nth-child(3)
+            display flex
+            align-items center
             width 18px
             height 18px
 </style>

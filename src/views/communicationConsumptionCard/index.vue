@@ -7,7 +7,7 @@
         <div class="number text-center text-bold">7,0000</div>
         <div class="add-number text-center">
           <div class="add-img">
-            <img src="../../assets/img/add-nomber.png" alt="今日新增">
+            <img src="../../assets/img/add-nomber.png" alt="今日新增" />
           </div>
           <div class="today-number text-bold text-break">今日新增 + 35</div>
         </div>
@@ -18,7 +18,10 @@
               <div class="text-bold text-break">340</div>
               <div class="text-break">+50</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="传播消费卡次数">
+                <img
+                  src="../../assets/img/add-nomber.png"
+                  alt="传播消费卡次数"
+                />
               </div>
             </div>
           </div>
@@ -28,7 +31,7 @@
               <div class="text-bold text-break">1670</div>
               <div class="text-break">+50</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="领取总数">
+                <img src="../../assets/img/add-nomber.png" alt="领取总数" />
               </div>
             </div>
           </div>
@@ -38,7 +41,7 @@
               <div class="text-bold text-break">867</div>
               <div class="text-break">+50</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="核销总数">
+                <img src="../../assets/img/add-nomber.png" alt="核销总数" />
               </div>
             </div>
           </div>
@@ -47,61 +50,59 @@
       <div class="effect-list">
         <div class="my-effect">
           <div>
-            <img src="../../assets/img/spread-card-left.png" alt="">
+            <img src="../../assets/img/spread-card-left.png" alt="" />
           </div>
           <div>我传播的消费卡</div>
           <div>
-            <img src="../../assets/img/right-arrow.png" alt="">
+            <img src="../../assets/img/right-arrow.png" alt="" />
           </div>
         </div>
-        <hr>
+        <hr />
         <div class="my-effect">
           <div>
-            <img src="../../assets/img/accept-card-left.png" alt="">
+            <img src="../../assets/img/accept-card-left.png" alt="" />
           </div>
           <div>待接受的传播邀请</div>
           <div>
-            <img src="../../assets/img/right-arrow.png" alt="">
+            <img src="../../assets/img/right-arrow.png" alt="" />
           </div>
         </div>
       </div>
       <div class="tip">
         <div class="tip-img">
-          <img src="../../assets/img/right-arrow.png" alt="">
+          <img src="../../assets/img/right-arrow.png" alt="" />
         </div>
-        <div class="tip-text">作为达人，您可以传播消费卡给他人并获取相应收益</div>
+        <div class="tip-text">
+          作为达人，您可以传播消费卡给他人并获取相应收益
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import navBar from '@/components/navBar'
+import navBar from "@/components/navBar";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     navBar
   },
   data() {
     return {
-      title: '传播消费卡'
-    }
+      title: "传播消费卡"
+    };
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
 .home
   .ignore
-    top 46px
+    padding-top 70px
   .content
-    position relative
-    width 100%
-    margin auto
     .header-content
       position relative
-      top 30px
-      padding 40px 0px
       margin auto
+      padding-top 30px
       width 351px
       min-height 284px
       background #FFFFFF
@@ -166,12 +167,10 @@ export default {
               &:nth-child(3)
                 width 10px
     .effect-list
-      position relative
-      top 40px
       background #FFFFFF
       border-radius 8px
       width 351px
-      margin 0 auto
+      margin 10px auto
       hr
         border none
         border-top 1px solid #EEEEEE
@@ -196,14 +195,14 @@ export default {
             font-size 16px
             color #333333
           &:nth-child(3)
+            display flex
+            align-items center
             width 18px
             height 18px
     .tip
-      position relative
-      top 40px
       display flex
       width 351px
-      margin 10px auto
+      margin 0px auto
       .tip-img
         display flex
         width 16px

@@ -7,7 +7,7 @@
         <div class="number text-center text-bold">7,0000</div>
         <div class="add-number text-center">
           <div class="add-img">
-            <img src="../../assets/img/add-nomber.png" alt="今日新增">
+            <img src="../../assets/img/add-nomber.png" alt="今日新增" />
           </div>
           <div class="today-number text-bold text-break">今日下降 - 35</div>
         </div>
@@ -29,21 +29,21 @@
       <div class="effect-list">
         <div class="my-effect">
           <div>
-            <img src="../../assets/img/goods-left-img.png" alt="">
+            <img src="../../assets/img/goods-left-img.png" alt="" />
           </div>
           <div>商品列表</div>
           <div>
-            <img src="../../assets/img/right-arrow.png" alt="">
+            <img src="../../assets/img/right-arrow.png" alt="" />
           </div>
         </div>
-        <hr>
+        <hr />
         <div class="my-effect">
           <div>
-            <img src="../../assets/img/sales-left-img.png" alt="">
+            <img src="../../assets/img/sales-left-img.png" alt="" />
           </div>
           <div>商品销量排行</div>
           <div>
-            <img src="../../assets/img/right-arrow.png" alt="">
+            <img src="../../assets/img/right-arrow.png" alt="" />
           </div>
         </div>
       </div>
@@ -52,32 +52,28 @@
 </template>
 
 <script>
-import navBar from '@/components/navBar'
+import navBar from "@/components/navBar";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     navBar
   },
   data() {
     return {
-      title: '商品管理'
-    }
+      title: "商品管理"
+    };
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
 .home
   .ignore
-    top 46px
+    padding-top 70px
   .content
-    position relative
-    width 100%
-    margin auto
     .header-content
       position relative
-      top 30px
-      padding 40px 0px
       margin auto
+      padding-top 30px
       width 351px
       min-height 284px
       background #FFFFFF
@@ -136,12 +132,10 @@ export default {
                 color #333333
                 font-size 20px
     .effect-list
-      position relative
-      top 40px
       background #FFFFFF
       border-radius 8px
       width 351px
-      margin 0 auto
+      margin 10px auto
       hr
         border none
         border-top 1px solid #EEEEEE
@@ -166,6 +160,8 @@ export default {
             font-size 16px
             color #333333
           &:nth-child(3)
+            display flex
+            align-items center
             width 18px
             height 18px
 </style>
