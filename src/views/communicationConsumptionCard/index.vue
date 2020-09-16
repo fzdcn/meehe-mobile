@@ -4,7 +4,9 @@
     <div class="content ignore">
       <div class="header-content">
         <div class="view-money text-center">总收益(元)</div>
-        <div class="number text-center text-bold">7,0000</div>
+        <div class="number text-center text-bold">
+          <countTo separator="" :startVal='0' :endVal='70000' :duration='1500'></countTo>
+        </div>
         <div class="add-number text-center">
           <div class="add-img">
             <img src="../../assets/img/add-nomber.png" alt="今日新增" />
@@ -18,10 +20,7 @@
               <div class="text-bold text-break">340</div>
               <div class="text-break">+50</div>
               <div>
-                <img
-                  src="../../assets/img/add-nomber.png"
-                  alt="传播消费卡次数"
-                />
+                <img src="../../assets/img/add-nomber.png" alt="传播消费卡次数" />
               </div>
             </div>
           </div>
@@ -70,7 +69,7 @@
       </div>
       <div class="tip">
         <div class="tip-img">
-          <img src="../../assets/img/right-arrow.png" alt="" />
+          <van-icon name="info-o" color="#999999" />
         </div>
         <div class="tip-text">
           作为达人，您可以传播消费卡给他人并获取相应收益
@@ -81,18 +80,20 @@
 </template>
 
 <script>
-import navBar from "@/components/navBar";
+import countTo from 'vue-count-to'
+import navBar from '@/components/navBar'
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
-    navBar
+    navBar,
+    countTo
   },
   data() {
     return {
-      title: "传播消费卡"
-    };
+      title: '传播消费卡'
+    }
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
 .home
@@ -204,10 +205,9 @@ export default {
       width 351px
       margin 0px auto
       .tip-img
-        display flex
-        width 16px
-        height 16px
         margin-right 5px
+        .van-icon-info-o
+          font-size 16px
       .tip-text
         color #999999
         font-size 12px

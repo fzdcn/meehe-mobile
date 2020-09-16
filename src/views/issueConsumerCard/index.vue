@@ -1,12 +1,14 @@
 <template>
   <div class="home">
-    <nav-bar :title="title">
+    <nav-bar @showRight="showRight" :title="title">
       <van-icon name="add-o" slot="right" size="20" />
     </nav-bar>
     <div class="content ignore">
       <div class="header-content">
         <div class="view-money text-center">销量提升</div>
-        <div class="number text-center text-bold">7,0000</div>
+        <div class="number text-center text-bold">
+          <countTo separator="" :startVal='0' :endVal='70000' :duration='1500'></countTo>
+        </div>
         <div class="add-number text-center">
           <div class="add-img">
             <img src="../../assets/img/add-nomber.png" alt="今日新增" />
@@ -61,49 +63,50 @@
       </div>
       <div class="tip">
         <div class="tip-img">
-          <img src="../../assets/img/right-arrow.png" alt="" />
+          <van-icon name="info-o" color="#999999" />
         </div>
         <div class="tip-text">
           作为商家，您可以发行消费卡，通过达人传播，吸引更多人来购买商品，进而提升销量
         </div>
       </div>
     </div>
-    <van-picker
-      title="标题"
-      show-toolbar
-      :columns="columns"
-      @confirm="onConfirm"
-      @cancel="onCancel"
-      @change="onChange"
-    />
+    <van-popup v-model="showPicker" round position="bottom">
+      <van-picker title="" show-toolbar :columns="columns" @confirm="onConfirm" @cancel="onCancel" @change="onChange" />
+    </van-popup>
   </div>
 </template>
 
 <script>
-import navBar from "@/components/navBar";
+import countTo from 'vue-count-to'
+import navBar from '@/components/navBar'
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
-    navBar
+    navBar,
+    countTo
   },
   data() {
     return {
-      title: "发行消费卡",
-      columns: ["杭州", "宁波", "温州", "绍兴", "湖州", "嘉兴", "金华", "衢州"]
-    };
+      title: '发行消费卡',
+      showPicker: false,
+      columns: ['创建消费卡', '发行消费卡']
+    }
   },
   methods: {
     onConfirm(value, index) {
-      this.$toast(`当前值：${value}, 当前索引：${index}`);
+      this.$toast(`当前值：${value}, 当前索引：${index}`)
     },
     onChange(picker, value, index) {
-      this.$toast(`当前值：${value}, 当前索引：${index}`);
+      this.$toast(`当前值：${value}, 当前索引：${index}`)
     },
     onCancel() {
-      this.$toast("取消");
+      this.showPicker = false
+    },
+    showRight() {
+      this.showPicker = true
     }
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
 .home
@@ -215,10 +218,9 @@ export default {
       width 351px
       margin 0px auto
       .tip-img
-        display flex
-        width 16px
-        height 16px
         margin-right 5px
+        .van-icon-info-o
+          font-size 16px
       .tip-text
         color #999999
         font-size 12px

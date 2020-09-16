@@ -4,7 +4,9 @@
     <div class="content ignore">
       <div class="header-content">
         <div class="view-money text-center">商品总销量</div>
-        <div class="number text-center text-bold">7,0000</div>
+        <div class="number text-center text-bold">
+          <countTo separator="" :startVal='0' :endVal='70000' :duration='1500'></countTo>
+        </div>
         <div class="add-number text-center">
           <div class="add-img">
             <img src="../../assets/img/add-nomber.png" alt="今日新增" />
@@ -52,18 +54,20 @@
 </template>
 
 <script>
-import navBar from "@/components/navBar";
+import countTo from 'vue-count-to'
+import navBar from '@/components/navBar'
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
-    navBar
+    navBar,
+    countTo
   },
   data() {
     return {
-      title: "商品管理"
-    };
+      title: '商品管理'
+    }
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
 .home

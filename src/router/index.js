@@ -20,31 +20,31 @@ const routes = [
 		path: "/home",
 		name: "home",
 		component: Home,
-		meta: { auth: false, keepAlive: false },
+		meta: { auth: false },
 	},
 	{
 		path: "/communication-consumption-card",
 		name: "communication-consumption-card",
 		component: communicationConsumptionCard,
-		meta: { auth: false, keepAlive: false },
+		meta: { auth: false },
 	},
 	{
 		path: "/order-manage",
 		name: "order-manage",
 		component: orderManage,
-		meta: { auth: false, keepAlive: false },
+		meta: { auth: false },
 	},
 	{
 		path: "/goods-manage",
 		name: "goods-manage",
 		component: goodsManage,
-		meta: { auth: false, keepAlive: false },
+		meta: { auth: false },
 	},
 	{
 		path: "/issue-consumer-card",
 		name: "issue-consumer-card",
 		component: issueConsumerCard,
-		meta: { auth: false, keepAlive: false },
+		meta: { auth: false },
 	},
 ];
 

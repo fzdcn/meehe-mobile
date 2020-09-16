@@ -14,10 +14,10 @@ export default {
   },
   methods: {
     onClickLeft() {
-      this.$toast('成功文案')
+      this.$toast('返回')
     },
     onClickRight() {
-      this.$toast('按钮')
+      this.$emit('showRight')
     }
   }
 }

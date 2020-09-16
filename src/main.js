@@ -6,13 +6,16 @@ import store from "./store";
 import "normalize.css/normalize.css";
 import "@/assets/css/common.styl";
 
-import Vant from "vant";
+import { NavBar, Toast, Icon, Popup, Picker } from "vant";
 import "vant/lib/index.css";
 
 import "@/assets/css/index.styl";
 
-Vue.use(Vant);
-
+Vue.use(NavBar)
+	.use(Toast)
+	.use(Icon)
+	.use(Popup)
+	.use(Picker);
 Vue.config.productionTip = false;
 
 new Vue({
