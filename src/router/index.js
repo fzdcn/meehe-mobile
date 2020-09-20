@@ -5,21 +5,22 @@ import Vue from "vue";
 import Router from "vue-router";
 
 Vue.use(Router);
-const Home = () => import("@/views/index/home");
+const influenceSpace = () => import("@/views/influenceSpace/index");
 const communicationConsumptionCard = () =>
 	import("@/views/communicationConsumptionCard/index");
 const orderManage = () => import("@/views/orderManage/index");
 const goodsManage = () => import("@/views/goodsManage/index");
 const issueConsumerCard = () => import("@/views/issueConsumerCard/index");
+const salesVolume = () => import("@/views/salesVolume/index");
 const Login = () => import("@/views/login/login");
 
 const routes = [
-	{ path: "/", redirect: { name: "home" } },
+	{ path: "/", redirect: { name: "influence-space" } },
 	{ path: "/login", name: "login", component: Login, meta: { auth: false } },
 	{
-		path: "/home",
-		name: "home",
-		component: Home,
+		path: "/influence-space",
+		name: "influence-space",
+		component: influenceSpace,
 		meta: { auth: false },
 	},
 	{
@@ -44,6 +45,12 @@ const routes = [
 		path: "/issue-consumer-card",
 		name: "issue-consumer-card",
 		component: issueConsumerCard,
+		meta: { auth: false },
+	},
+	{
+		path: "/sales-volume",
+		name: "sales-volume",
+		component: salesVolume,
 		meta: { auth: false },
 	},
 ];

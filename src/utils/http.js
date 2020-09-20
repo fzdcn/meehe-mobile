@@ -5,6 +5,9 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { Toast } from "vant";
 Vue.use(Toast);
+// 如果不需要转圈配置如下代码，默认是 true
+NProgress.configure({ showSpinner: false });
+
 axios.defaults.timeout = 50000; //超时时间
 axios.defaults.baseURL = process.env.VUE_APP_URL; //API 接口
 //HTTP Request 拦截器
@@ -12,11 +15,19 @@ axios.interceptors.request.use(
 	function(config) {
 		NProgress.start();
 		config.data = JSON.stringify(config.data);
+		config.params = {
+			tk:
+				"6d8e20261c7f4d988a739584c09244eeMQwWQi7vJr6sAzdViFg3jvPOuMGx0rtaYEQ4OUVLXCdc35lIeEbGnRvmkBDMR2jVtO3X01VzRuPbm9ntUbzj8KDZ2n1usf1K",
+			sessionId:
+				"6d8e20261c7f4d988a739584c09244eeMQwWQi7vJr6sAzdViFg3jvPOuMGx0rtaYEQ4OUVLXCdc35lIeEbGnRvmkBDMR2jVtO3X01VzRuPbm9ntUbzj8KDZ2n1usf1K",
+			...config.params,
+		};
 		config.headers = {
 			"content-Type": "application/json;charset=UTF-8",
-			token: sessionStorage.getItem("token")
-				? sessionStorage.getItem("token")
-				: "",
+			tk:
+				"6d8e20261c7f4d988a739584c09244eeMQwWQi7vJr6sAzdViFg3jvPOuMGx0rtaYEQ4OUVLXCdc35lIeEbGnRvmkBDMR2jVtO3X01VzRuPbm9ntUbzj8KDZ2n1usf1K",
+			sessionId:
+				"6d8e20261c7f4d988a739584c09244eeMQwWQi7vJr6sAzdViFg3jvPOuMGx0rtaYEQ4OUVLXCdc35lIeEbGnRvmkBDMR2jVtO3X01VzRuPbm9ntUbzj8KDZ2n1usf1K",
 		};
 		return config;
 	},
