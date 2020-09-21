@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- <nav-bar :title="title"></nav-bar> -->
-    <div class="content ignore">
+    <div class="content add-padding">
       <div class="header-content">
         <div class="view-money text-center">总收益(元)</div>
         <div class="number text-center text-bold">

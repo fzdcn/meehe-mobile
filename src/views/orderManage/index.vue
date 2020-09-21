@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- <nav-bar :title="title"></nav-bar> -->
-    <div class="content ignore">
+    <div class="content add-padding">
       <div class="header-content">
         <div class="view-num text-center">成交订单总数</div>
         <div class="number text-center text-bold">

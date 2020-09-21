@@ -3,7 +3,7 @@
     <!-- <nav-bar @showRight="showRight" :title="title">
       <van-icon name="add-o" slot="right" size="20" />
     </nav-bar> -->
-    <div class="content ignore">
+    <div class="content add-padding">
       <div class="header-content">
         <div class="view-money text-center">销量提升</div>
         <div class="number text-center text-bold">
@@ -73,7 +73,7 @@
     <van-popup v-model="showPicker" round position="bottom">
       <van-picker title="" show-toolbar :columns="columns" @confirm="onConfirm" @cancel="onCancel" @change="onChange" />
     </van-popup>
-    <div class="btn-list">
+    <div class="btn-list ignore">
       <van-button @click="createSalesCard" type="default">创建消费卡</van-button>
       <van-button @click="issueSalesCard" type="danger">发行消费卡</van-button>
     </div>
@@ -161,14 +161,16 @@ export default {
   height 100%
   background linear-gradient(180deg, rgba(34, 38, 57, 1) 25%, rgba(43, 48, 71, 0.5) 35%, rgba(245, 245, 245, 1) 100%)
   .btn-list
-    position absolute
-    height 70px
+    position fixed
     width 100%
     bottom 0px
     background-color #ffffff
     display flex
     justify-content space-around
     align-items center
+    z-index 5px
+  .ignore
+    height 70px
     .van-button--normal
       width 170px
 .content

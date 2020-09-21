@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- <nav-bar :title="title"></nav-bar> -->
-    <div class="content ignore">
+    <div class="content add-padding">
       <div v-if="salesVolume.length" class="header-text">
         <div class="time-select">
           <van-dropdown-menu>
