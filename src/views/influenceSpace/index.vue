@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="effect-list">
-        <div class="my-effect">
+        <div @click="goEffect" class="my-effect">
           <div>
             <img src="../../assets/img/effect-left-img.png" alt="" />
           </div>
@@ -67,6 +67,9 @@ export default {
     }
   },
   methods: {
+    goEffect() {
+      window.location.href = `meehe://app.com?pageId=10008&meeUserId=${this.$route.query.meeUserId}`
+    },
     getInfluenceSpace() {
       this.$http
         .get('/meehe/voucher/statistics/influence/statistics/info', {})

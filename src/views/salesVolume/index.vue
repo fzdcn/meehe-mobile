@@ -11,8 +11,8 @@
         <div class="right-text">销量最高的10件商品</div>
       </div>
 
-      <div class="sales-list">
-        <div v-for="(item,index) in salesVolume" class="goods-detail" :key="index">
+      <div v-if="salesVolume.length" class="sales-list">
+        <div @click="goGoodsDetail(item.meeItemId)" v-for="(item,index) in salesVolume" class="goods-detail" :key="index">
           <div class="goods-img">
             <van-image :src="item.coverPic" fit="fit"></van-image>
           </div>
@@ -64,6 +64,10 @@ export default {
     }
   },
   methods: {
+    // 商品详情
+    goGoodsDetail(id) {
+      window.location.href = `meehe://app.com?pageId=10023&meeItemId=${id}`
+    },
     change(val) {
       this.getSalesVolume()
     },
@@ -168,7 +172,7 @@ export default {
           height 26px
   // 暂无订单
   .no-content
-    margin-top 150px
+    padding-top 150px
     .order-no-img
       margin auto
       width 220px

@@ -7,13 +7,13 @@
       <div class="header-content">
         <div class="view-money text-center">销量提升</div>
         <div class="number text-center text-bold">
-          <countTo separator="" :startVal='0' :endVal='70000' :duration='1500'></countTo>
+          <countTo separator="" :startVal='0' :endVal='orderManage.totalSalesByVoucher' :duration='1500'></countTo>
         </div>
         <div class="add-number text-center">
           <div class="add-img">
             <img src="../../assets/img/add-nomber.png" alt="今日新增" />
           </div>
-          <div class="today-number text-bold text-break">今日新增 + 35</div>
+          <div class="today-number text-bold text-break">今日新增 + {{ orderManage.totalDailySalesByVoucher }}</div>
         </div>
         <div class="content-detail">
           <div class="detail-info">
@@ -41,7 +41,7 @@
         </div>
       </div>
       <div class="effect-list">
-        <div class="my-effect">
+        <div @click="myCreateSalesCard" class="my-effect">
           <div>
             <img src="../../assets/img/create-card-left-img.png" alt="" />
           </div>
@@ -51,7 +51,7 @@
           </div>
         </div>
         <hr />
-        <div class="my-effect">
+        <div @click="myIssueSalesCard" class="my-effect">
           <div>
             <img src="../../assets/img/release-history-left-img.png" alt="" />
           </div>
@@ -73,6 +73,10 @@
     <van-popup v-model="showPicker" round position="bottom">
       <van-picker title="" show-toolbar :columns="columns" @confirm="onConfirm" @cancel="onCancel" @change="onChange" />
     </van-popup>
+    <div class="btn-list">
+      <van-button @click="createSalesCard" type="default">创建消费卡</van-button>
+      <van-button @click="issueSalesCard" type="danger">发行消费卡</van-button>
+    </div>
   </div>
 </template>
 
@@ -90,7 +94,8 @@ export default {
       title: '发行消费卡',
       showPicker: false,
       columns: ['创建消费卡', '发行消费卡'],
-      issueConsumerCard: {}
+      issueConsumerCard: {},
+      orderManage: {}
     }
   },
   methods: {
@@ -116,9 +121,37 @@ export default {
         .catch(err => {
           console.log(err)
         })
+    },
+    getOrderManage() {
+      this.$http
+        .get('/meeheapp/Statistics/getOrderManagementData.html', {})
+        .then(({ data }) => {
+          console.log(data)
+          this.orderManage = data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    // 我创建得消费卡
+    myCreateSalesCard() {
+      window.location.href = `meehe://app.com?pageId=10018`
+    },
+    // 消费卡发行记录
+    myIssueSalesCard() {
+      window.location.href = `meehe://app.com?pageId=10014`
+    },
+    // 创建消费卡
+    createSalesCard() {
+      window.location.href = `meehe://app.com?pageId=10013`
+    },
+    // 发行消费卡
+    issueSalesCard() {
+      window.location.href = `meehe://app.com?pageId=10024`
     }
   },
   mounted() {
+    this.getOrderManage()
     this.getIssueConsumerCard()
   }
 }
@@ -127,6 +160,17 @@ export default {
 .home
   height 100%
   background linear-gradient(180deg, rgba(34, 38, 57, 1) 25%, rgba(43, 48, 71, 0.5) 35%, rgba(245, 245, 245, 1) 100%)
+  .btn-list
+    position absolute
+    height 70px
+    width 100%
+    bottom 0px
+    background-color #ffffff
+    display flex
+    justify-content space-around
+    align-items center
+    .van-button--normal
+      width 170px
 .content
   .header-content
     position relative

@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="effect-list">
-        <div class="my-effect">
+        <div @click="goGoodsList" class="my-effect">
           <div>
             <img src="../../assets/img/goods-left-img.png" alt="" />
           </div>
@@ -69,6 +69,10 @@ export default {
     }
   },
   methods: {
+    // 商品列表
+    goGoodsList() {
+      window.location.href = `meehe://app.com?pageId=10012`
+    },
     getGoodsManage() {
       this.$http
         .get('/meeheapp/Statistics/getCommodityManagementData.html', {})

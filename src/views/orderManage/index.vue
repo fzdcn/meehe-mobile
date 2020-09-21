@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="effect-list">
-        <div class="my-effect">
+        <div @click="mySalesOrders" class="my-effect">
           <div>
             <img src="../../assets/img/order-left-img.png" alt="" />
           </div>
@@ -65,6 +65,10 @@ export default {
     }
   },
   methods: {
+    // 我卖出得订单
+    mySalesOrders() {
+      window.location.href = `meehe://app.com?pageId=10011`
+    },
     getOrderManage() {
       this.$http
         .get('/meeheapp/Statistics/getOrderManagementData.html', {})

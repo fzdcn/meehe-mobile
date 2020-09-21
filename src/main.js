@@ -17,6 +17,7 @@ import {
 	Image,
 	DropdownMenu,
 	DropdownItem,
+	Button,
 } from "vant";
 import "vant/lib/index.css";
 
@@ -28,6 +29,7 @@ Vue.use(NavBar)
 	.use(Popup)
 	.use(Picker)
 	.use(Image)
+	.use(Button)
 	.use(DropdownMenu)
 	.use(DropdownItem);
 Vue.prototype.$moment = moment;

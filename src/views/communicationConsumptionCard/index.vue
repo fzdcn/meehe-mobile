@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="effect-list">
-        <div class="my-effect">
+        <div @click="myCommunicationConsumptionCard" class="my-effect">
           <div>
             <img src="../../assets/img/spread-card-left.png" alt="" />
           </div>
@@ -95,6 +95,9 @@ export default {
     }
   },
   methods: {
+    myCommunicationConsumptionCard() {
+      window.location.href = `meehe://app.com?pageId=10009`
+    },
     getCommunicationConsumptionCard() {
       this.$http
         .get('/meehe/voucher/statistics/spread/statistics/info', {})
