@@ -15,19 +15,17 @@ axios.interceptors.request.use(
 	function(config) {
 		NProgress.start();
 		config.data = JSON.stringify(config.data);
+		// let sessionId = Router.history.current.query.sessionId;
+		let sessionId =
+			"6d8e20261c7f4d988a739584c09244eeMQwWQi7vJr6sAzdViFg3jvPOuMGx0rtaYEQ4OUVLXCdc35lIeEbGnRvmkBDMR2jVtO3X01VzRuPbm9ntUbzj8KDZ2n1usf1K";
 		config.params = {
-			tk:
-				"6d8e20261c7f4d988a739584c09244eeMQwWQi7vJr6sAzdViFg3jvPOuMGx0rtaYEQ4OUVLXCdc35lIeEbGnRvmkBDMR2jVtO3X01VzRuPbm9ntUbzj8KDZ2n1usf1K",
-			sessionId:
-				"6d8e20261c7f4d988a739584c09244eeMQwWQi7vJr6sAzdViFg3jvPOuMGx0rtaYEQ4OUVLXCdc35lIeEbGnRvmkBDMR2jVtO3X01VzRuPbm9ntUbzj8KDZ2n1usf1K",
+			sessionId: sessionId ? sessionId : "",
 			...config.params,
 		};
 		config.headers = {
 			"content-Type": "application/json;charset=UTF-8",
-			tk:
-				"6d8e20261c7f4d988a739584c09244eeMQwWQi7vJr6sAzdViFg3jvPOuMGx0rtaYEQ4OUVLXCdc35lIeEbGnRvmkBDMR2jVtO3X01VzRuPbm9ntUbzj8KDZ2n1usf1K",
-			sessionId:
-				"6d8e20261c7f4d988a739584c09244eeMQwWQi7vJr6sAzdViFg3jvPOuMGx0rtaYEQ4OUVLXCdc35lIeEbGnRvmkBDMR2jVtO3X01VzRuPbm9ntUbzj8KDZ2n1usf1K",
+			"Access-Control-Allow-Credentials": true,
+			tk: sessionId ? sessionId : "",
 		};
 		return config;
 	},
@@ -43,20 +41,6 @@ axios.interceptors.response.use(
 		NProgress.done();
 		if (res.data.code == 0) {
 			return res;
-		} else if (
-			res.data.code == 10010 ||
-			res.data.code == 10004 ||
-			res.data.code == 10005 ||
-			res.data.code == 10011
-		) {
-			number++;
-			window.sessionStorage.clear();
-			if (number <= 1) {
-				Router.push({
-					path: "/login",
-				});
-				number = 0;
-			}
 		} else {
 			let msg = res.data.msg ? res.data.msg : "网络错误，请稍后再试！";
 			console.log("%c" + msg, "color:#fff; background: #f00;");
