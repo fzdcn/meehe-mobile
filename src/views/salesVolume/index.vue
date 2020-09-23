@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="sales-volume">
     <!-- <nav-bar :title="title"></nav-bar> -->
     <div class="content add-padding">
       <div v-if="salesVolume.length" class="header-text">
@@ -24,12 +24,14 @@
                 <div class="number text-break">{{ item.saleCount }}</div>
               </div>
             </div>
-            <div v-if="index < 3" class="top-img"><img src="../../assets/img/top1.png" alt="top1"></div>
+            <div v-if="index === 0" class="top-img"><img src="../../assets/img/top1.png" alt="top1"></div>
+            <div v-if="index === 1" class="top-img"><img src="../../assets/img/top2.png" alt="top2"></div>
+            <div v-if="index === 2" class="top-img"><img src="../../assets/img/top3.png" alt="top3"></div>
           </div>
         </div>
       </div>
 
-      <div v-if="!salesVolume.length" class="no-content text-center">
+      <div v-if="!salesVolume.length" style="padding-top:140px;" class="no-content text-center">
         <div class="order-no-img text-center">
           <img src="../../assets/img/order-no.png" alt="暂无">
         </div>
@@ -102,7 +104,7 @@ export default {
   width 100%
 .width1
   width 250px
-.home
+.sales-volume
   height 100vh
 .content
   .header-text
@@ -172,7 +174,6 @@ export default {
           height 26px
   // 暂无订单
   .no-content
-    padding-top 150px
     .order-no-img
       margin auto
       width 220px

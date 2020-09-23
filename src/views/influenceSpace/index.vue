@@ -5,11 +5,11 @@
       <div class="header-content">
         <div class="view-num text-center">被浏览次数</div>
         <div class="number text-center text-bold">
-          <countTo separator="" :startVal='0' :endVal='influenceSpaceData.viewCount' :duration='2000'></countTo>
+          <countTo separator="" :startVal='0' :endVal='influenceSpaceData.viewCount ? influenceSpaceData.viewCount : 0' :duration='2000'></countTo>
         </div>
         <div class="add-number text-center">
           <div class="add-img">
-            <img src="../../assets/img/add-nomber.png" alt="今日新增" />
+            <img src="../../assets/img/add-number.png" alt="今日新增" />
           </div>
           <div class="today-number text-bold text-break">今日新增 + {{ influenceSpaceData.todayViewCount }}</div>
         </div>
@@ -20,7 +20,7 @@
               <div class="text-bold text-break">{{ influenceSpaceData.beInvitedCount }}</div>
               <div class="text-break">+{{ influenceSpaceData.todayBeInvitedCount }}</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="被邀次数" />
+                <img src="../../assets/img/add-number.png" alt="被邀次数" />
               </div>
             </div>
           </div>
@@ -30,7 +30,7 @@
               <div class="text-bold text-break">{{ influenceSpaceData.chatCount }}</div>
               <div class="text-break">+{{ influenceSpaceData.todayChatCount }}</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="沟通次数" />
+                <img src="../../assets/img/add-number.png" alt="沟通次数" />
               </div>
             </div>
           </div>
@@ -88,9 +88,6 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.home
-  height 100vh
-  background linear-gradient(180deg, rgba(34, 38, 57, 1) 25%, rgba(43, 48, 71, 0.5) 35%, rgba(245, 245, 245, 1) 100%)
 .content
   .header-content
     position relative
@@ -117,7 +114,7 @@ export default {
       justify-content center
       margin-top 10px
       div
-        margin-right 10px
+        margin-right 5px
       .today-number
         font-size 12px
         color #FF2D01

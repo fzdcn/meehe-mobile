@@ -3,15 +3,15 @@
     <!-- <nav-bar @showRight="showRight" :title="title">
       <van-icon name="add-o" slot="right" size="20" />
     </nav-bar> -->
-    <div class="content add-padding">
+    <div style="padding-bottom:80px;" class="content add-padding">
       <div class="header-content">
         <div class="view-money text-center">销量提升</div>
         <div class="number text-center text-bold">
-          <countTo separator="" :startVal='0' :endVal='orderManage.totalSalesByVoucher' :duration='1500'></countTo>
+          <countTo separator="" :startVal='0' :endVal='orderManage.totalSalesByVoucher ? orderManage.totalSalesByVoucher : 0' :duration='2000'></countTo>
         </div>
         <div class="add-number text-center">
           <div class="add-img">
-            <img src="../../assets/img/add-nomber.png" alt="今日新增" />
+            <img src="../../assets/img/add-number.png" alt="今日新增" />
           </div>
           <div class="today-number text-bold text-break">今日新增 + {{ orderManage.totalDailySalesByVoucher }}</div>
         </div>
@@ -28,7 +28,7 @@
               <div class="text-bold text-break">{{ issueConsumerCard.voucherConsumerNum }}</div>
               <div class="text-break">+{{ issueConsumerCard.voucherConsumerNewNum }}</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="触达人数" />
+                <img src="../../assets/img/add-number.png" alt="触达人数" />
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
             <img src="../../assets/img/right-arrow.png" alt="" />
           </div>
         </div>
-        <hr />
+        <van-divider />
         <div @click="myIssueSalesCard" class="my-effect">
           <div>
             <img src="../../assets/img/release-history-left-img.png" alt="" />
@@ -157,22 +157,19 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.home
-  height 100%
-  background linear-gradient(180deg, rgba(34, 38, 57, 1) 25%, rgba(43, 48, 71, 0.5) 35%, rgba(245, 245, 245, 1) 100%)
-  .btn-list
-    position fixed
-    width 100%
-    bottom 0px
-    background-color #ffffff
-    display flex
-    justify-content space-around
-    align-items center
-    z-index 5px
-  .ignore
-    height 70px
-    .van-button--normal
-      width 170px
+.btn-list
+  position fixed
+  width 100%
+  bottom 0px
+  background-color #ffffff
+  display flex
+  justify-content space-around
+  align-items center
+  z-index 5px
+.ignore
+  height 70px
+  .van-button--normal
+    width 45%
 .content
   .header-content
     position relative
@@ -199,7 +196,7 @@ export default {
       justify-content center
       margin-top 10px
       div
-        margin-right 10px
+        margin-right 5px
       .today-number
         font-size 12px
         color #FF2D01
@@ -246,11 +243,11 @@ export default {
     border-radius 8px
     width 351px
     margin 10px auto
-    hr
-      border none
-      border-top 1px solid #EEEEEE
+    .van-divider
+      margin 0px auto
       width 331px
-      height 1px
+      color #EEEEEE
+      border 0 solid #EEEEEE
     .my-effect
       padding 0 10px
       height 56px
@@ -278,10 +275,10 @@ export default {
     display flex
     width 351px
     margin 0px auto
-    .tip-img
+    .van-icon-info-o
+      font-size 15px
       margin-right 5px
-      .van-icon-info-o
-        font-size 16px
+      line-height 16px
     .tip-text
       color #999999
       font-size 12px

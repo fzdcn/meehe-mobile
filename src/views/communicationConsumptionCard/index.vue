@@ -5,11 +5,11 @@
       <div class="header-content">
         <div class="view-money text-center">总收益(元)</div>
         <div class="number text-center text-bold">
-          <countTo separator="" :startVal='0' :endVal='communicationConsumptionCard.totalAward' :duration='1500'></countTo>
+          <countTo separator="" :decimals="2" :startVal='0' :endVal='parseFloat(communicationConsumptionCard.totalAward ? communicationConsumptionCard.totalAward : 0)' :duration='2000'></countTo>
         </div>
         <div class="add-number text-center">
           <div class="add-img">
-            <img src="../../assets/img/add-nomber.png" alt="今日新增" />
+            <img src="../../assets/img/add-number.png" alt="今日新增" />
           </div>
           <div class="today-number text-bold text-break">今日新增 + {{ communicationConsumptionCard.todayAward }}</div>
         </div>
@@ -20,7 +20,7 @@
               <div class="text-bold text-break">{{ communicationConsumptionCard.voucherSpreadCount }}</div>
               <div class="text-break">+{{ communicationConsumptionCard.spreadingCount }}</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="传播消费卡次数" />
+                <img src="../../assets/img/add-number.png" alt="传播消费卡次数" />
               </div>
             </div>
           </div>
@@ -30,7 +30,7 @@
               <div class="text-bold text-break">{{ communicationConsumptionCard.getCount }}</div>
               <div class="text-break">+{{ communicationConsumptionCard.todayGetCount }}</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="领取总数" />
+                <img src="../../assets/img/add-number.png" alt="领取总数" />
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@
               <div class="text-bold text-break">{{ communicationConsumptionCard.usedCount }}</div>
               <div class="text-break">+{{ communicationConsumptionCard.todayUsedCount }}</div>
               <div>
-                <img src="../../assets/img/add-nomber.png" alt="核销总数" />
+                <img src="../../assets/img/add-number.png" alt="核销总数" />
               </div>
             </div>
           </div>
@@ -56,8 +56,8 @@
             <img src="../../assets/img/right-arrow.png" alt="" />
           </div>
         </div>
-        <hr />
-        <div class="my-effect">
+        <van-divider />
+        <!-- <div class="my-effect">
           <div>
             <img src="../../assets/img/accept-card-left.png" alt="" />
           </div>
@@ -65,12 +65,10 @@
           <div>
             <img src="../../assets/img/right-arrow.png" alt="" />
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="tip">
-        <div class="tip-img">
-          <van-icon name="info-o" color="#999999" />
-        </div>
+        <van-icon name="info-o" color="#999999" />
         <div class="tip-text">
           作为达人，您可以传播消费卡给他人并获取相应收益
         </div>
@@ -116,9 +114,6 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.home
-  height 100vh
-  background linear-gradient(180deg, rgba(34, 38, 57, 1) 25%, rgba(43, 48, 71, 0.5) 35%, rgba(245, 245, 245, 1) 100%)
 .content
   .header-content
     position relative
@@ -145,7 +140,7 @@ export default {
       justify-content center
       margin-top 10px
       div
-        margin-right 10px
+        margin-right 5px
       .today-number
         font-size 12px
         color #FF2D01
@@ -192,11 +187,11 @@ export default {
     border-radius 8px
     width 351px
     margin 10px auto
-    hr
-      border none
-      border-top 1px solid #EEEEEE
+    .van-divider
+      margin 0px auto
       width 331px
-      height 1px
+      color #EEEEEE
+      border 0 solid #EEEEEE
     .my-effect
       padding 0 10px
       height 56px
@@ -224,10 +219,10 @@ export default {
     display flex
     width 351px
     margin 0px auto
-    .tip-img
+    .van-icon-info-o
+      font-size 15px
       margin-right 5px
-      .van-icon-info-o
-        font-size 16px
+      line-height 16px
     .tip-text
       color #999999
       font-size 12px
